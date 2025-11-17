@@ -24,3 +24,10 @@ git remote -v
 
 To view commit logs
 git log --online
+
+
+
+Files used 
+nodemon
+mongoose
+dotenv

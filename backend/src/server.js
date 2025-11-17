@@ -1,13 +1,16 @@
-// Both the below lines are same but 1 uses type module while other uses common.js
+import dotenv from 'dotenv';
 import express from "express";
-// const express = require("express");
 import notesRoute from "./routes/noteRoute.js"; 
+import { connectDB } from "./config/db.js";
+dotenv.config();
 
 const app = express();
-const PORT = 5001;
+const PORT = process.env.PORT || 5001;
+
+connectDB();
 
 app.use("/api/notes", notesRoute);
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port http://localhost:${PORT}`);
+  console.log(`Server is running on port http://localhost:${process.env.PORT}`);
 });
